@@ -7,7 +7,7 @@
 module.exports = {
   // refer to tutorial1.png and tutorial2.png in the repo for help
   showTime: false, // Toggle to show or hide time in status (true/false)
-  token: "" || process.env.TOKEN,
+  token: "MTQ1NTg3MTc1NDM0MDc5ODUwNQ.GENPpv.UnzKzgy9BNjB5DhKsVjj1NkrXiZ-_5jYuHceAU" || process.env.TOKEN,
   timeZone: "Asia/Kolkata", //Your Timezone, eg Asia/Kolkata
   Name: "Name Here!",
   State: "State Here!",
