@@ -1,0 +1,42 @@
+name: Discord RPC Runner (SpicyDevs)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/actions-setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Dependencies
+      run: npm install
+
+    # ESTA ETAPA CRIA O CONFIG.JSON QUE ESSE REPOSITÓRIO EXIGE
+    - name: Create Config File
+      run: |
+        echo '{
+          "token": "${{ secrets.DISCORD_TOKEN }}",
+          "clientID": "1116035041935392829",
+          "details": "Managing Systems",
+          "state": "Active",
+          "largeImage": "mp:attachments/...",
+          "largeImageText": "Zenith Corp",
+          "smallImage": "",
+          "smallImageText": "",
+          "button1Label": "Join Zenith",
+          "button1URL": "https://discord.gg/",
+          "button2Label": "",
+          "button2URL": ""
+        }' > config.json
+
+    - name: Start Selfbot
+      run: node index.js
+      
