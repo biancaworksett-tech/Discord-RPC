@@ -16,8 +16,11 @@ jobs:
       with:
         node-version: '20'
 
+    # ESSA ETAPA AGORA FORÇA A INSTALAÇÃO DA BIBLIOTECA QUE ESTÁ FALTANDO
     - name: Install Dependencies
-      run: npm install
+      run: |
+        npm install
+        npm install discord.js-selfbot-v13
 
     # ESTA ETAPA CRIA O CONFIG.JSON QUE ESSE REPOSITÓRIO EXIGE
     - name: Create Config File
@@ -39,4 +42,3 @@ jobs:
 
     - name: Start Selfbot
       run: node index.js
-      
