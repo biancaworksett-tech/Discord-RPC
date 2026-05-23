@@ -11,18 +11,17 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
+    # MUDAMOS A VERSÃO DO NODE AQUI PARA EVITAR O ERRO DE ES MODULES
     - name: Setup Node.js
       uses: actions/actions-setup-node@v4
       with:
-        node-version: '20'
+        node-version: '16'
 
-    # ESSA ETAPA AGORA FORÇA A INSTALAÇÃO DA BIBLIOTECA QUE ESTÁ FALTANDO
     - name: Install Dependencies
       run: |
         npm install
         npm install discord.js-selfbot-v13
 
-    # ESTA ETAPA CRIA O CONFIG.JSON QUE ESSE REPOSITÓRIO EXIGE
     - name: Create Config File
       run: |
         echo '{
